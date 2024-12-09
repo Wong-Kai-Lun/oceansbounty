@@ -1,21 +1,100 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
         <EditText
             android:id="@+id/input_email"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            style="@style/InputField"
             android:layout_marginTop="340dp"
             android:hint="Email Address"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/input_password"
+            style="@style/InputField"
+            android:layout_marginTop="60dp"
+            android:hint="Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/input_email"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/RedButton"
+            android:padding="10dp"
+            android:text="Login"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.78" />
+
+        <Button
+            style="@style/RedButton"
+            android:id="@+id/create_account_button"
+            android:text="Create Account"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.98"/>
+
+        <ImageView
+            android:id="@+id/Logo"
+            android:layout_width="207dp"
+            android:layout_height="148dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.216"
+            app:srcCompat="@drawable/logo" />
+
+        <Button
+            style="@style/TextButton"
+            android:id="@+id/skip_for_now"
+            android:text="Skip For Now"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+        <!-- Try out AppCompat EditText -->
+
+        <Button
+            style="@style/TextButton"
+            android:id="@+id/forgot_password"
+            android:layout_width="115dp"
+            android:layout_height="29dp"
+            android:gravity="end"
+            android:padding="0dp"
+            android:text="Forgot Password"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.645"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.641" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
