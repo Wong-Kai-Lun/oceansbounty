@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        style="@style/RedBar"
+        android:id="@+id/TopBar"
+        android:text="Reservations"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/dark_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TopBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Change to container to contain the 3 nav buttons -->
+    <LinearLayout
+        android:id="@+id/BottomBar"
+        style="@style/RedBar"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!-- Create a style -->
+        <ImageButton
+            android:id="@+id/BookingButton"
+            style="@style/BottomNavButton"
+            app:srcCompat="@drawable/opened_book" />
+
+        <ImageButton
+            android:id="@+id/MailButton"
+            style="@style/BottomNavButton"
+            app:srcCompat="@drawable/closed_mail" />
+
+        <ImageButton
+            android:id="@+id/AccountButton"
+            style="@style/BottomNavButton"
+            app:srcCompat="@drawable/account" />
+
+    </LinearLayout>
+
+
+    <!-- Book Button -->
+    <Button
+        style="@style/RedButton"
+        android:id="@+id/book_button"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="18dp"
+        android:text="Book Now"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
