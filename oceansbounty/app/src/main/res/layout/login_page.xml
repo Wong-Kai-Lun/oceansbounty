@@ -1,40 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <EditText
-            android:id="@+id/input_email"
-            style="@style/InputField"
-            android:layout_marginTop="340dp"
-            android:hint="Email Address"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
+        <ImageView
+            android:id="@+id/Logo"
+            android:layout_width="207dp"
+            android:layout_height="148dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.170"
+            app:srcCompat="@drawable/logo" />
+
+        <FrameLayout
+            android:id="@+id/frame_email_input"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.445">
 
-        <EditText
-            android:id="@+id/input_password"
-            style="@style/InputField"
-            android:layout_marginTop="60dp"
-            android:hint="Password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
+                <View
+                    style="@style/Shadow"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="6dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    style="@style/InputField"
+                    android:id="@+id/input_email"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_password_input"
+            android:layout_width="230dp"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/input_email"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toBottomOf="@+id/frame_email_input"
+            app:layout_constraintVertical_bias="0.115">
 
+                <View
+                    style="@style/Shadow"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|top"
+                    android:layout_marginTop="10dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    style="@style/InputField"
+                    android:id="@+id/input_password"
+                    android:hint="Password"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword" />
+
+                <Button
+                    style="@style/TextButton"
+                    android:id="@+id/forgot_password"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end|bottom"
+                    android:padding="0dp"
+                    android:text="Forgot Password"
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+        </FrameLayout>
+
+        <!-- Login Button -->
         <Button
-            android:id="@+id/login_button"
             style="@style/RedButton"
-            android:padding="10dp"
+            android:id="@+id/login_button"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="15dp"
             android:text="Login"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -43,7 +93,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.78" />
+            app:layout_constraintVertical_bias="0.779" />
 
         <Button
             style="@style/RedButton"
@@ -56,45 +106,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.98"/>
 
-        <ImageView
-            android:id="@+id/Logo"
-            android:layout_width="207dp"
-            android:layout_height="148dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.216"
-            app:srcCompat="@drawable/logo" />
-
         <Button
             style="@style/TextButton"
             android:id="@+id/skip_for_now"
+            android:layout_width="126dp"
+            android:layout_height="35dp"
+            android:padding="0dp"
             android:text="Skip For Now"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-        <!-- Try out AppCompat EditText -->
-
-        <Button
-            style="@style/TextButton"
-            android:id="@+id/forgot_password"
-            android:layout_width="115dp"
-            android:layout_height="29dp"
-            android:gravity="end"
-            android:padding="0dp"
-            android:text="Forgot Password"
-            android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.645"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.641" />
-
-
+            app:layout_constraintVertical_bias="0.025" />
 </androidx.constraintlayout.widget.ConstraintLayout>
