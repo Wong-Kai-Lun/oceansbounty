@@ -50,20 +50,20 @@
 
     <style name="BottomNavButton">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">15dp</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:scaleX">1.5</item>
         <item name="android:scaleY">1.5</item>
     </style>
 
     <style name="TableButton">
-        <item name="android:layout_width">30dp</item>
-        <item name="android:layout_height">30dp/item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@color/transparent</item>
-        <item name="android:scaleX">1.5</item>
-        <item name="android:scaleY">1.5</item>
+        <item name="android:layout_margin">25dp</item>
+        <item name="android:paddingHorizontal">30dp</item>
+        <item name="android:paddingVertical">28dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:backgroundTint">@color/crab_red</item>
     </style>
 
 </resources>

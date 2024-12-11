@@ -16,8 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-        <!-- tweak padding later -->
 
+        <!-- Button change color when selected -->
         <Button
             android:id="@+id/garden_button"
             style="@style/GreyButton"
@@ -50,8 +50,6 @@
             android:layout_gravity="end|bottom"
             android:text="Outside" />
 
-        <!-- make button have border to show it is selected -->
-
     </FrameLayout>
 
     <GridLayout
@@ -66,58 +64,40 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
         app:layout_constraintVertical_bias="0.5">
 
+        <!-- Tables half opacity and unclickable until location is chosen -->
         <Button
             android:id="@+id/table_1"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="1"
-            android:textSize="20sp" />
+            style="@style/TableButton"
+            android:text="1" />
 
         <Button
             android:id="@+id/table_2"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="2"
-            android:textSize="20sp" />
+            style="@style/TableButton"
+            android:text="2" />
 
         <Button
             android:id="@+id/table_3"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="3"
-            android:textSize="20sp" />
+            style="@style/TableButton"
+            android:text="3" />
 
         <Button
             android:id="@+id/table_4"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="4"
-            android:textSize="20sp" />
+            style="@style/TableButton"
+            android:text="4" />
 
         <Button
             android:id="@+id/table_5"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="5"
-            android:textSize="20sp" />
+            style="@style/TableButton"
+            android:text="5" />
 
         <Button
             android:id="@+id/table_6"
-            android:layout_margin="25dp"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="30dp"
-            android:text="6"
-            android:textSize="20sp" />
-
-        <!--make a style for table-->
+            style="@style/TableButton"
+            android:text="6" />
 
     </GridLayout>
 
+    <!-- Go back to main menu -->
     <Button
         android:id="@+id/back_button"
         style="@style/GreyButton"

@@ -38,7 +38,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <!-- Create a style -->
         <ImageButton
             android:id="@+id/BookingButton"
             style="@style/BottomNavButton"
@@ -56,8 +55,9 @@
 
     </LinearLayout>
 
+    <!-- Add RecyclerView here for Cards -->
 
-    <!-- Book Button -->
+    <!-- Book Button, code must be below RecyclerView to float on top of it -->
     <Button
         style="@style/RedButton"
         android:id="@+id/book_button"
