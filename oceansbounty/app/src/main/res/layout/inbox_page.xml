@@ -2,42 +2,40 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         style="@style/RedBar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:text="Reservations"/>
+        android:text="Inbox"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/allow_notification"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.08"
+        android:paddingHorizontal="10dp"
+        android:text="Notification"
+        android:textSize="20sp"
+        android:gravity="start|center"
+        android:background="@color/light_grey"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.01"
-        android:background="@color/dark_red"/>
-    
+        android:background="@color/grey"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
         <!--Recycler View-->
-
-        <Button
-            android:id="@+id/book_button"
-            style="@style/RedButton"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="18dp"
-            android:text="Book Now"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -57,7 +55,7 @@
             android:id="@+id/MailButton"
             style="@style/BottomNavButton"
             android:contentDescription="mail_icon"
-            app:srcCompat="@drawable/closed_mail" />
+            app:srcCompat="@drawable/opened_mail" />
 
         <ImageButton
             android:id="@+id/AccountButton"
