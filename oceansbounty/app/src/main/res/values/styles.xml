@@ -37,6 +37,8 @@
     <style name="Shadow">
         <item name="android:layout_width">220dp</item>
         <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">end|bottom</item>
+        <item name="android:layout_marginTop">6dp</item>
         <item name="android:background">@drawable/shadow_rect</item>
     </style>
 

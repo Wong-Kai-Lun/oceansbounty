@@ -30,14 +30,12 @@
 
                 <View
                     style="@style/Shadow"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end|bottom"
-                    android:layout_marginTop="6dp" />
+                    android:layout_marginTop="6dp"
+                    android:layout_gravity="end|bottom"/>
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    style="@style/InputField"
                     android:id="@+id/input_email"
+                    style="@style/InputField"
                     android:hint="Email Address"
                     android:inputType="textEmailAddress" />
         </FrameLayout>
