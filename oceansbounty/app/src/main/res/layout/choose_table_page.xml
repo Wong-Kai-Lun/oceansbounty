@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
         app:layout_constraintVertical_bias="0.5">
 
-        <!-- Tables half opacity and unclickable until location is chosen -->
+        <!-- Tables half opacity and un-clickable until location is chosen -->
         <Button
             android:id="@+id/table_1"
             style="@style/TableButton"

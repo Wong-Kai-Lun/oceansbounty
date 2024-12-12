@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         style="@style/RedBar"
-        android:id="@+id/TopBar"
+        android:id="@+id/top_bar"
         android:text="Reservations"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TopBar"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
         app:layout_constraintVertical_bias="0.0" />
 
     <!-- Change to container to contain the 3 nav buttons -->
@@ -57,15 +57,13 @@
 
     <!-- Add RecyclerView here for Cards -->
 
-    <!-- Book Button, code must be below RecyclerView to float on top of it -->
+    <!-- Book Button code must be below RecyclerView to float on top of it -->
     <Button
         style="@style/RedButton"
         android:id="@+id/book_button"
         android:paddingHorizontal="25dp"
         android:paddingVertical="18dp"
         android:text="Book Now"
-        android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
