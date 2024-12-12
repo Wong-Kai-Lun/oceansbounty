@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.85"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--Card-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="210dp"
+            android:background="@drawable/light_grey_rect"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/table_num"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/white_circle"
+                android:backgroundTint="@color/crab_red"
+                android:gravity="center"
+                android:text="N"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/scenery"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/scenery"
+                style="@style/CardInfoChip"
+                android:text="Scenery"
+                app:layout_constraintEnd_toStartOf="@+id/place"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/table_num"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/place"
+                style="@style/CardInfoChip"
+                android:text="Place"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/scenery"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/meal_type"
+                style="@style/CardInfoChip"
+                android:text="meal_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/table_num"
+                app:layout_constraintTop_toBottomOf="@+id/scenery" />
+
+            <!--Date-->
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="date"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/table_num"
+                app:srcCompat="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/input_date"
+                style="@style/CardInfoText"
+                android:layout_width="84dp"
+                android:layout_marginTop="20dp"
+                android:text="dd/mm/yyyy"
+                app:layout_constraintStart_toEndOf="@+id/calendar_icon"
+                app:layout_constraintTop_toBottomOf="@+id/table_num" />
+
+
+            <!--Seats-->
+            <ImageView
+                android:id="@+id/chair_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="number_of_seats"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:layout_constraintStart_toEndOf="@+id/input_date"
+                app:layout_constraintTop_toBottomOf="@+id/meal_type"
+                app:srcCompat="@drawable/chair" />
+
+            <TextView
+                android:id="@+id/input_seats"
+                style="@style/CardInfoText"
+                android:layout_marginTop="20dp"
+                android:text="N"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/chair_icon"
+                app:layout_constraintTop_toBottomOf="@+id/meal_type" />
+
+
+            <!--Time-->
+            <ImageView
+                android:id="@+id/clock_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="time"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_icon"
+                app:srcCompat="@drawable/clock" />
+
+            <TextView
+                android:id="@+id/input_time"
+                style="@style/CardInfoText"
+                android:layout_marginTop="20dp"
+                android:text="7:00 - 9:00"
+                app:layout_constraintStart_toEndOf="@+id/clock_icon"
+                app:layout_constraintTop_toBottomOf="@+id/input_date" />
+
+
+            <!--Edit-->
+            <ImageButton
+                android:id="@+id/edit_square"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:contentDescription="edit_booking"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/edit_square"
+                app:tint="@color/crab_red" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back_button"
+            style="@style/GreyButton"
+            android:layout_marginEnd="25dp"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="15dp"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            style="@style/RedButton"
+            android:layout_marginStart="25dp"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="15dp"
+            android:text="Confirm" />
+
+    </LinearLayout>
+
+</LinearLayout>
