@@ -66,12 +66,12 @@
             app:layout_constraintVertical_bias="0.148" />
 
         <FrameLayout
-            android:id="@+id/frameLayout2"
+            android:id="@+id/frame_name"
             android:layout_width="230dp"
             android:layout_height="60dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
@@ -80,112 +80,36 @@
                 android:layout_gravity="end|bottom"
                 android:layout_marginTop="6dp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <TextView
                 android:id="@+id/input_name"
                 style="@style/InputField"
-                android:hint="Name"
-                android:inputType="text" />
+                android:text="Name"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:gravity="center_vertical"/>
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/frameLayout3"
+            android:id="@+id/frame_phone_num"
             android:layout_width="230dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+            app:layout_constraintTop_toBottomOf="@+id/frame_name">
 
             <View
                 style="@style/Shadow"
                 android:layout_gravity="end|bottom"
                 android:layout_marginTop="6dp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_title"
-                style="@style/InputField"
-                android:hint="Title"
-                android:inputType="text" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameLayout4"
-            android:layout_width="230dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
-
-            <View
-                style="@style/Shadow"
-                android:layout_gravity="end|bottom"
-                android:layout_marginTop="6dp" />
-
-            <androidx.appcompat.widget.AppCompatEditText
+            <TextView
                 android:id="@+id/input_phone_num"
                 style="@style/InputField"
-                android:hint="Contact Number"
-                android:inputType="numberDecimal" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameLayout5"
-            android:layout_width="230dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
-
-            <View
-                style="@style/Shadow"
-                android:layout_gravity="end|bottom"
-                android:layout_marginTop="6dp" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_email"
-                style="@style/InputField"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frame_password_input"
-            android:layout_width="230dp"
-            android:layout_height="90dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <View
-                style="@style/Shadow"
-                android:layout_width="220dp"
-                android:layout_height="50dp"
-                android:layout_gravity="end|top"
-                android:layout_marginTop="10dp" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_password"
-                style="@style/InputField"
-                android:hint="Password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword" />
-
-            <Button
-                android:id="@+id/change_password"
-                style="@style/TextButton"
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end|bottom"
-                android:padding="0dp"
-                android:text="Change Password"
-                android:textColor="@color/grey"
-                android:textSize="11sp" />
+                android:gravity="center_vertical"
+                android:text="Phone Number"
+                android:textSize="16sp"
+                android:textStyle="normal" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

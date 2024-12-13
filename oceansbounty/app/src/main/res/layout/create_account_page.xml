@@ -50,64 +50,11 @@
                 android:layout_gravity="end|bottom"/>
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_title"
-                style="@style/InputField"
-                android:hint="Title"
-                android:inputType="text" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="230dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="20dp">
-
-            <View
-                style="@style/Shadow"
-                android:layout_marginTop="6dp"
-                android:layout_gravity="end|bottom"/>
-
-            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/input_phone_num"
                 style="@style/InputField"
-                android:hint="Contact Number"
+                android:hint="Phone Number"
                 android:inputType="numberDecimal" />
         </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="230dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="20dp">
-
-            <View
-                style="@style/Shadow"
-                android:layout_marginTop="6dp"
-                android:layout_gravity="end|bottom"/>
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_email"
-                style="@style/InputField"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="230dp"
-            android:layout_height="60dp">
-
-            <View
-                style="@style/Shadow"
-                android:layout_marginTop="6dp"
-                android:layout_gravity="end|bottom"/>
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/input_password"
-                style="@style/InputField"
-                android:hint="Password"
-                android:inputType="textPassword" />
-        </FrameLayout>
-
-
-        
     </LinearLayout>
     
     <LinearLayout

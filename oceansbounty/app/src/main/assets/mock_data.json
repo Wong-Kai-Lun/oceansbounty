@@ -1,0 +1,37 @@
+{
+  "customerInfo":[
+    {
+      "customer_id": 0,
+      "customerName": "John Brown",
+      "customerPhoneNumber": "074544877562"
+    },
+    {
+      "customer_id": 1,
+      "customerName": "Helen Smith",
+      "customerPhoneNumber": "07455789923"
+    }
+  ],
+
+  "bookingInfo": [
+    {
+      "booking_id": 0,
+      "customer_id": 0,
+      "table_number": "1",
+      "seatingScenery": "Garden",
+      "seatingArea": "Outside",
+      "tableSize": 5,
+      "meal": "Breakfast",
+      "date": "2023-10-15"
+    },
+    {
+      "booking_id": 1,
+      "customer_id": 1,
+      "table_number": "3",
+      "seatingScenery": "Seaside",
+      "seatingArea": "Inside",
+      "tableSize": 7,
+      "meal": "Lunch",
+      "date": "2023-10-30"
+    }
+  ]
+}

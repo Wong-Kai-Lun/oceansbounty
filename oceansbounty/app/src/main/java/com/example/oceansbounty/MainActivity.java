@@ -10,15 +10,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boolean logged_in = false;
         // set logged_in to false during logout
+        boolean logged_in = false;
+
+        // in main menu, if not logged in, ask for log in before proceeding, check the boolean here first
 
         if(logged_in){
             // Jump to main menu if logged in
-            setContentView(R.layout.main_menu_page);
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            startActivity(intent);
         } else {
             // Load the login layout
-            setContentView(R.layout.login_page);
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }

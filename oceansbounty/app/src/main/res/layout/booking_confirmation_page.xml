@@ -85,35 +85,9 @@
                 app:layout_constraintStart_toEndOf="@+id/calendar_icon"
                 app:layout_constraintTop_toBottomOf="@+id/table_num" />
 
-
             <!--Seats-->
             <ImageView
                 android:id="@+id/chair_icon"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="number_of_seats"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                app:layout_constraintStart_toEndOf="@+id/input_date"
-                app:layout_constraintTop_toBottomOf="@+id/meal_type"
-                app:srcCompat="@drawable/chair" />
-
-            <TextView
-                android:id="@+id/input_seats"
-                style="@style/CardInfoText"
-                android:layout_marginTop="20dp"
-                android:text="N"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/chair_icon"
-                app:layout_constraintTop_toBottomOf="@+id/meal_type" />
-
-
-            <!--Time-->
-            <ImageView
-                android:id="@+id/clock_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="20dp"
@@ -122,14 +96,14 @@
                 android:scaleY="1.2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/calendar_icon"
-                app:srcCompat="@drawable/clock" />
+                app:srcCompat="@drawable/chair" />
 
             <TextView
-                android:id="@+id/input_time"
+                android:id="@+id/input_seats"
                 style="@style/CardInfoText"
                 android:layout_marginTop="20dp"
-                android:text="7:00 - 9:00"
-                app:layout_constraintStart_toEndOf="@+id/clock_icon"
+                android:text="N"
+                app:layout_constraintStart_toEndOf="@+id/chair_icon"
                 app:layout_constraintTop_toBottomOf="@+id/input_date" />
 
 

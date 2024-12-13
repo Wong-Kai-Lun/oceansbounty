@@ -36,7 +36,8 @@
             android:id="@+id/scenery"
             style="@style/GreyButton"
             android:layout_gravity="end|top"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginTop="10dp"
             android:text="Scenery"
             android:background="@drawable/white_circle"
             android:paddingHorizontal="20dp"/>
@@ -45,6 +46,8 @@
             android:id="@+id/place"
             style="@style/GreyButton"
             android:layout_gravity="end|bottom"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
             android:text="Place"
             android:background="@drawable/white_circle"
             android:paddingHorizontal="20dp"/>
@@ -126,8 +129,7 @@
         <LinearLayout
             style="@style/TableDetail"
             android:layout_weight="2"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginHorizontal="16dp"
             android:gravity="center">
 
             <TextView
@@ -138,42 +140,7 @@
                 android:id="@+id/input_date"
                 style="@style/TableDetailButton"
                 android:text="dd/mm/yyyy"/>
-
-            <TextView
-                style="@style/TableInfoText"
-                android:text="Time"
-                android:layout_marginTop="20dp"/>
-
-            <Button
-                android:id="@+id/input_time"
-                style="@style/TableDetailButton"
-                android:text="00:00 - 00:00"/>
         </LinearLayout>
-
-        <LinearLayout
-            style="@style/TableDetail"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center">
-
-            <TextView
-                style="@style/TableInfoText"
-                android:text="Special Occasion"/>
-
-            <Button
-                android:id="@+id/speocc_yes"
-                style="@style/TableDetailButton"
-                android:layout_marginTop="20dp"
-                android:text="Yes"/>
-
-            <Button
-                android:id="@+id/speocc_no"
-                style="@style/TableDetailButton"
-                android:layout_marginTop="5dp"
-                android:text="No"/>
-        </LinearLayout>
-
     </LinearLayout>
     
     <LinearLayout

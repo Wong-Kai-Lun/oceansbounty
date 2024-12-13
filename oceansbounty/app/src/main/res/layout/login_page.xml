@@ -17,79 +17,42 @@
             app:layout_constraintVertical_bias="0.170"
             app:srcCompat="@drawable/logo" />
 
+        <!-- Login Button -->
         <FrameLayout
-            android:id="@+id/frame_email_input"
+            android:id="@+id/frame_phone_input"
             android:layout_width="230dp"
             android:layout_height="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.445">
+            app:layout_constraintTop_toBottomOf="@+id/Logo"
+            app:layout_constraintVertical_bias="0.4">
 
                 <View
                     style="@style/Shadow"
-                    android:layout_marginTop="6dp"
-                    android:layout_gravity="end|bottom"/>
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/input_email"
-                    style="@style/InputField"
-                    android:hint="Email Address"
-                    android:inputType="textEmailAddress" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frame_password_input"
-            android:layout_width="230dp"
-            android:layout_height="90dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frame_email_input"
-            app:layout_constraintVertical_bias="0.115">
-
-                <View
-                    style="@style/Shadow"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end|top"
-                    android:layout_marginTop="10dp" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    style="@style/InputField"
-                    android:id="@+id/input_password"
-                    android:hint="Password"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword" />
-
-                <Button
-                    style="@style/TextButton"
-                    android:id="@+id/forgot_password"
-                    android:layout_width="110dp"
-                    android:layout_height="30dp"
                     android:layout_gravity="end|bottom"
-                    android:padding="0dp"
-                    android:text="Forgot Password"
-                    android:textColor="@color/grey"
-                    android:textSize="11sp"/>
+                    android:layout_marginTop="6dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/input_phone_num"
+                    style="@style/InputField"
+                    android:hint="Phone Number"
+                    android:inputType="phone" />
         </FrameLayout>
 
-        <!-- Login Button -->
         <Button
-            style="@style/RedButton"
             android:id="@+id/login_button"
+            style="@style/RedButton"
             android:paddingHorizontal="25dp"
             android:paddingVertical="15dp"
             android:text="Login"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/create_account_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779" />
+            app:layout_constraintTop_toBottomOf="@id/frame_phone_input"
+            app:layout_constraintVertical_bias="0.8" />
 
         <Button
             style="@style/RedButton"
@@ -101,19 +64,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.98"/>
-
-        <Button
-            style="@style/TextButton"
-            android:id="@+id/skip_for_now"
-            android:layout_width="126dp"
-            android:layout_height="35dp"
-            android:padding="0dp"
-            android:text="Skip For Now"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.020" />
 </androidx.constraintlayout.widget.ConstraintLayout>
