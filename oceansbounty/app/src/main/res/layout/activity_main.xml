@@ -7,12 +7,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <!--add buttons here and use this to switch layouts-->
-    <Button
-        android:id="@+id/button_1"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:onClick="" />
 </LinearLayout>
