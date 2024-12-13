@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/chosen_place"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:paddingVertical="30dp"
+        android:paddingHorizontal="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/table_num"
+            android:background="@drawable/white_circle"
+            android:backgroundTint="@color/crab_red"
+            android:layout_height="110dp"
+            android:layout_width="110dp"
+            android:layout_gravity="start|center"
+            android:gravity="center"
+            android:padding="0dp"
+            android:text="N"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/scenery"
+            style="@style/GreyButton"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="50dp"
+            android:text="Scenery"
+            android:background="@drawable/white_circle"
+            android:paddingHorizontal="20dp"/>
+
+        <TextView
+            android:id="@+id/place"
+            style="@style/GreyButton"
+            android:layout_gravity="end|bottom"
+            android:text="Place"
+            android:background="@drawable/white_circle"
+            android:paddingHorizontal="20dp"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/table_details_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toTopOf="@id/table_details_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chosen_place">
+
+        <LinearLayout
+            style="@style/TableDetail"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                style="@style/TableInfoText"
+                android:text="Number of Seats"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/number_of_seats"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="35dp"
+                android:layout_gravity="center"
+                android:inputType="numberDecimal"
+                android:background="@drawable/white_circle"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/TableDetail"
+            android:layout_weight="1.2"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                style="@style/TableInfoText"
+                android:layout_marginBottom="10dp"
+                android:text="Meal Type"/>
+
+            <Button
+                android:id="@+id/breakfast"
+                style="@style/TableDetailButton"
+                android:text="Breakfast"/>
+
+            <Button
+                android:id="@+id/lunch"
+                style="@style/TableDetailButton"
+                android:text="Lunch"/>
+
+            <Button
+                android:id="@+id/dinner"
+                style="@style/TableDetailButton"
+                android:text="Dinner"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--In progress-->
+    <LinearLayout
+        android:id="@+id/table_details_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_buttons"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_details_1">
+
+        <LinearLayout
+            style="@style/TableDetail"
+            android:layout_weight="2"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/TableInfoText"
+                android:text="Date"/>
+
+            <Button
+                android:id="@+id/input_date"
+                style="@style/TableDetailButton"
+                android:text="dd/mm/yyyy"/>
+
+            <TextView
+                style="@style/TableInfoText"
+                android:text="Time"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/input_time"
+                style="@style/TableDetailButton"
+                android:text="00:00 - 00:00"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/TableDetail"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/TableInfoText"
+                android:text="Special Occasion"/>
+
+            <Button
+                android:id="@+id/speocc_yes"
+                style="@style/TableDetailButton"
+                android:layout_marginTop="20dp"
+                android:text="Yes"/>
+
+            <Button
+                android:id="@+id/speocc_no"
+                style="@style/TableDetailButton"
+                android:layout_marginTop="5dp"
+                android:text="No"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/table_details_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/back_button"
+            style="@style/RedButton"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/dark_red"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="15dp"
+            android:layout_marginEnd="20dp"
+            android:text="Cancel"/>
+
+        <Button
+            android:id="@+id/save_button"
+            style="@style/RedButton"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="15dp"
+            android:layout_marginStart="20dp"
+            android:text="Save"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
