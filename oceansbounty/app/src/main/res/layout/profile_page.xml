@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        style="@style/RedBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="Profile"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.01"
+        android:background="@color/dark_red"/>
+
+    <!--Body-->
+
+    <!--Bottom Nav Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toStartOf="@+id/edit_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/logout_btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/account_black" />
+
+        <Button
+            android:id="@+id/logout_btn"
+            style="@style/GreyButton"
+            android:padding="0dp"
+            android:text="Log Out"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
+
+        <Button
+            android:id="@+id/edit_btn"
+            style="@style/GreyButton"
+            android:padding="0dp"
+            android:text="Edit"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+            <View
+                style="@style/Shadow"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="6dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_name"
+                style="@style/InputField"
+                android:hint="Name"
+                android:inputType="text" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+            <View
+                style="@style/Shadow"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="6dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_title"
+                style="@style/InputField"
+                android:hint="Title"
+                android:inputType="text" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout4"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+
+            <View
+                style="@style/Shadow"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="6dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_phone_num"
+                style="@style/InputField"
+                android:hint="Contact Number"
+                android:inputType="numberDecimal" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout5"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
+
+            <View
+                style="@style/Shadow"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="6dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_email"
+                style="@style/InputField"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_password_input"
+            android:layout_width="230dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                style="@style/Shadow"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end|top"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_password"
+                style="@style/InputField"
+                android:hint="Password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/change_password"
+                style="@style/TextButton"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|bottom"
+                android:padding="0dp"
+                android:text="Change Password"
+                android:textColor="@color/grey"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_nav_bar"
+        style="@style/RedBar"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="0.12">
+
+        <ImageButton
+            android:id="@+id/BookingButton"
+            style="@style/BottomNavButton"
+            android:contentDescription="menu_icon"
+            app:srcCompat="@drawable/opened_book" />
+
+        <ImageButton
+            android:id="@+id/MailButton"
+            style="@style/BottomNavButton"
+            android:contentDescription="mail_icon"
+            app:srcCompat="@drawable/closed_mail" />
+
+        <ImageButton
+            android:id="@+id/AccountButton"
+            style="@style/BottomNavButton"
+            android:contentDescription="profile_icon"
+            app:srcCompat="@drawable/account" />
+
+    </LinearLayout>
+</LinearLayout>
