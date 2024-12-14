@@ -44,14 +44,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         EditText newPhoneField = findViewById(R.id.input_phone_num);
         Button createMyAccountButton = findViewById(R.id.create_my_account_button);
 
-        TextView textView = findViewById(R.id.textView);
+        // Create an instance of retrofit
+        RequestData requestData = RetrofitClient.getInstance().create(RequestData.class);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://web.socem.plymouth.ac.uk/COMP2000/ReservationApi/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        RequestData requestData = retrofit.create(RequestData.class);
 
         requestData.getData(1).enqueue(new Callback<Reservation>() {
             @Override
