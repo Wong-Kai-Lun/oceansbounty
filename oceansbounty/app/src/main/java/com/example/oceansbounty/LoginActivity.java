@@ -24,15 +24,15 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone_number = phoneNumField.getText().toString();
+                String phoneNum = phoneNumField.getText().toString();
 
-                if (validateCredentials(phone_number)) {
+                if (validateCredentials(phoneNum)) {
 
                     Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Incorrect Data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Failed, Please Retry.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

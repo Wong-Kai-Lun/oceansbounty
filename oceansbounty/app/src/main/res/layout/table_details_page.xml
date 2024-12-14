@@ -15,8 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintBottom_toTopOf="table_details_1">
+        app:layout_constraintVertical_bias="0.0">
 
     <!-- Button change color when selected -->
     <Button
@@ -86,8 +85,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:hint=""/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -165,12 +163,12 @@
             android:text="Back"/>
 
         <Button
-            android:id="@+id/book_button"
+            android:id="@+id/next_button"
             style="@style/RedButton"
             android:paddingHorizontal="30dp"
             android:paddingVertical="15dp"
             android:layout_marginStart="20dp"
-            android:text="Book"/>
+            android:text="Next"/>
 
     </LinearLayout>
 
