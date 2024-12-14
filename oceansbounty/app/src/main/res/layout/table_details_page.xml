@@ -7,51 +7,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
-        android:id="@+id/chosen_place"
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:paddingVertical="30dp"
-        android:paddingHorizontal="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="190dp"
+        android:paddingVertical="35dp"
+        android:paddingHorizontal="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toTopOf="table_details_1">
 
-        <TextView
-            android:id="@+id/table_num"
-            android:background="@drawable/white_circle"
-            android:backgroundTint="@color/crab_red"
-            android:layout_height="110dp"
-            android:layout_width="110dp"
-            android:layout_gravity="start|center"
-            android:gravity="center"
-            android:padding="0dp"
-            android:text="N"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+    <!-- Button change color when selected -->
+    <Button
+        android:id="@+id/garden_button"
+        style="@style/GreyButton"
+        android:layout_gravity="start|top"
+        android:text="Garden" />
 
-        <TextView
-            android:id="@+id/scenery"
-            style="@style/GreyButton"
-            android:layout_gravity="end|top"
-            android:layout_marginEnd="70dp"
-            android:layout_marginTop="10dp"
-            android:text="Scenery"
-            android:background="@drawable/white_circle"
-            android:paddingHorizontal="20dp"/>
+    <Button
+        android:id="@+id/seaside_button"
+        style="@style/GreyButton"
+        android:layout_gravity="start|bottom"
+        android:text="Seaside" />
 
-        <TextView
-            android:id="@+id/place"
-            style="@style/GreyButton"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="10dp"
-            android:text="Place"
-            android:background="@drawable/white_circle"
-            android:paddingHorizontal="20dp"/>
-    </FrameLayout>
+    <Button
+        style="@style/GreyButton"
+        android:layout_width="40dp"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:padding="0dp"
+        android:text="&amp;" />
+
+    <Button
+        android:id="@+id/inside_button"
+        style="@style/GreyButton"
+        android:layout_gravity="end|top"
+        android:text="Inside" />
+
+    <Button
+        android:id="@+id/outside_button"
+        style="@style/GreyButton"
+        android:layout_gravity="end|bottom"
+        android:text="Outside" />
+
+
+
+</FrameLayout>
 
     <LinearLayout
         android:id="@+id/table_details_1"
@@ -61,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/table_details_2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chosen_place">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
         <LinearLayout
             style="@style/TableDetail"
@@ -84,7 +86,8 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:hint=""/>
         </LinearLayout>
 
         <LinearLayout

@@ -63,11 +63,27 @@
 
     <!--Table Details-->
 
-    <style name="TableButton">
-        <item name="android:layout_margin">25dp</item>
+    <style name="TableIcon_Available">
         <item name="android:paddingHorizontal">30dp</item>
-        <item name="android:paddingVertical">28dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:paddingVertical">30dp</item>
+        <item name="android:text">Available</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/white_circle</item>
+        <item name="android:backgroundTint">#98fb98</item>
+    </style>
+
+    <style name="TableIcon_Booked">
+        <item name="android:paddingHorizontal">30dp</item>
+        <item name="android:paddingVertical">30dp</item>
+        <item name="android:text">Booked</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/white_circle</item>
         <item name="android:backgroundTint">@color/crab_red</item>
     </style>
 
@@ -83,7 +99,7 @@
 
     <style name="TableDetailButton">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:textColor">@color/black</item>

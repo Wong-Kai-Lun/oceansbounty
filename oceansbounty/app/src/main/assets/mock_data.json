@@ -1,15 +1,7 @@
 {
   "customerInfo":[
-    {
-      "customer_id": 0,
-      "customerName": "John Brown",
-      "customerPhoneNumber": "074544877562"
-    },
-    {
-      "customer_id": 1,
-      "customerName": "Helen Smith",
-      "customerPhoneNumber": "07455789923"
-    }
+    { "customer_id": 0, "customerName": "John Brown", "customerPhoneNumber": "074544877562" },
+    { "customer_id": 1, "customerName": "Helen Smith", "customerPhoneNumber": "07455789923" }
   ],
 
   "bookingInfo": [

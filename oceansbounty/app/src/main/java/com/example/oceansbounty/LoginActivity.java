@@ -2,7 +2,6 @@ package com.example.oceansbounty;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +16,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
+        // Find UI Components
         EditText phoneNumField = findViewById(R.id.input_phone_num);
         Button loginButton = findViewById(R.id.login_button);
+        Button createAccButton = findViewById(R.id.create_account_button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +36,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        createAccButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    // CURRENT TASK - CREATE ACCOUNT PAGE AND FUNCTION (ADD NEW DATA TO JSON)
-
-    // Create a json file containing mock data
     // Code a function that goes through the json file to search for matching credentials
+
     private boolean validateCredentials(String phone_number) {
         // Mock data: Replace with a real database or API call in the future
         String validPhoneNum = "074544877562";
