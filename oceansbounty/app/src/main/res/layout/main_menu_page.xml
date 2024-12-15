@@ -49,19 +49,19 @@
         android:layout_weight="0.12">
 
         <ImageButton
-            android:id="@+id/BookingButton"
+            android:id="@+id/menu_button"
             style="@style/BottomNavButton"
             android:contentDescription="menu_icon"
             app:srcCompat="@drawable/opened_book" />
 
         <ImageButton
-            android:id="@+id/MailButton"
+            android:id="@+id/inbox_button"
             style="@style/BottomNavButton"
             android:contentDescription="mail_icon"
             app:srcCompat="@drawable/closed_mail" />
 
         <ImageButton
-            android:id="@+id/AccountButton"
+            android:id="@+id/profile_button"
             style="@style/BottomNavButton"
             android:contentDescription="profile_icon"
             app:srcCompat="@drawable/account" />

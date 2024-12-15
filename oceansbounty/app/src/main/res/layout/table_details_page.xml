@@ -100,21 +100,20 @@
                 android:text="Meal Type"/>
 
             <Button
-                android:id="@+id/breakfast"
+                android:id="@+id/breakfast_button"
                 style="@style/TableDetailButton"
                 android:text="Breakfast"/>
 
             <Button
-                android:id="@+id/lunch"
+                android:id="@+id/lunch_button"
                 style="@style/TableDetailButton"
                 android:text="Lunch"/>
 
             <Button
-                android:id="@+id/dinner"
+                android:id="@+id/dinner_button"
                 style="@style/TableDetailButton"
                 android:text="Dinner"/>
         </LinearLayout>
-
     </LinearLayout>
 
     <!--In progress-->
@@ -171,5 +170,4 @@
             android:text="Next"/>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

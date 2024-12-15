@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +18,35 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_page);
 
+        // UI Components
         Button bookButton = findViewById(R.id.book_button);
+
+        // menuButton not needed since in MainMenu
+        ImageButton inboxButton = findViewById(R.id.inbox_button);
+        ImageButton profileButton = findViewById(R.id.profile_button);
 
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, TableDetailsActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        // Bottom Navigation Buttons
+        inboxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(MenuActivity.this, InboxActivity.class);
+                //startActivity(intent);
+            }
+        });
+
+        inboxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
+                //startActivity(intent);
             }
         });
 

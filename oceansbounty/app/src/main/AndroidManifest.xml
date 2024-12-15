@@ -31,12 +31,17 @@
         </activity>
 
         <activity
+            android:name=".CreateAccountActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".MenuActivity"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".CreateAccountActivity"
+            android:name=".TableDetailsActivity"
             android:exported="true">
         </activity>
 
