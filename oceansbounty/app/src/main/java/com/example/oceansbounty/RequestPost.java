@@ -1,8 +1,7 @@
 package com.example.oceansbounty;
 
-public class Reservation {
+public class RequestPost {
 
-    private int id;
     private String customerName;
     private String customerPhoneNumber;
     private String meal;
@@ -10,12 +9,13 @@ public class Reservation {
     private int tableSize;
     private String date;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public RequestPost(String customerName, String customerPhoneNumber, String meal, String seatingArea, int tableSize, String date) {
+        this.customerName = customerName;
+        this.customerPhoneNumber = customerPhoneNumber;
+        this.meal = meal;
+        this.seatingArea = seatingArea;
+        this.tableSize = tableSize;
+        this.date = date;
     }
 
     public String getCustomerName() {

@@ -65,12 +65,19 @@
         android:gravity="center">
 
         <Button
+            style="@style/GreyButton"
+            android:id="@+id/back_button"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="15dp"
+            android:layout_marginEnd="10dp"
+            android:text="Back"/>
+
+        <Button
             style="@style/RedButton"
             android:id="@+id/create_my_account_button"
             android:paddingHorizontal="25dp"
             android:paddingVertical="15dp"
+            android:layout_marginStart="10dp"
             android:text="Create my account"/>
-
     </LinearLayout>
-
 </LinearLayout>
