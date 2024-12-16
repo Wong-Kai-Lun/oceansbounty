@@ -21,11 +21,102 @@
         android:background="@color/dark_red"/>
     
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/booking_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!--Recycler View-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/existing_booking"
+            android:layout_width="300dp"
+            android:layout_height="210dp"
+            android:background="@drawable/light_grey_rect"
+            android:padding="15dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
+
+            <TextView
+                android:id="@+id/input_seating_area"
+                style="@style/CardInfoChip"
+                android:text="seating_area"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/input_meal"
+                style="@style/CardInfoChip"
+                android:text="meal_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_seating_area" />
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="date"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_meal"
+                app:srcCompat="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/input_date"
+                style="@style/CardInfoText"
+                android:layout_width="84dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="yyyy/mm/dd"
+                app:layout_constraintStart_toEndOf="@+id/calendar_icon"
+                app:layout_constraintTop_toBottomOf="@+id/input_meal" />
+
+            <ImageView
+                android:id="@+id/chair_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="time"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_icon"
+                app:srcCompat="@drawable/chair" />
+
+            <TextView
+                android:id="@+id/input_seats"
+                style="@style/CardInfoText"
+                android:layout_marginTop="20dp"
+                android:text="N"
+                app:layout_constraintStart_toEndOf="@+id/chair_icon"
+                app:layout_constraintTop_toBottomOf="@+id/input_date" />
+
+
+            <!--Edit-->
+            <ImageButton
+                android:id="@+id/edit_square"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:contentDescription="edit_booking"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/edit_square"
+                app:tint="@color/crab_red" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/book_button"

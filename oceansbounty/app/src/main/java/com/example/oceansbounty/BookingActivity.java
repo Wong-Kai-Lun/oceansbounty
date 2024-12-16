@@ -125,10 +125,14 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String inputNumberOfSeats = numberOfSeatsField.getText().toString();
+                // Parse String to Integer
+                tableSize = Integer.parseInt(inputNumberOfSeats);
 
                 if(selectedScenery == null || selectedArea == null || selectedMeal == null || selectedDate == null || TextUtils.isEmpty(inputNumberOfSeats)) {
                     Toast.makeText(BookingActivity.this, "One of the fields are not selected or filled.", Toast.LENGTH_SHORT).show();
 
+                } else if (tableSize > 10){
+                    Toast.makeText(BookingActivity.this, "Maximum Table Size is 10.", Toast.LENGTH_SHORT).show();
                 } else {
                     View bookingConfirmationPage = getLayoutInflater().inflate(R.layout.booking_confirmation_page, null);
                     setContentView(bookingConfirmationPage);
@@ -147,9 +151,6 @@ public class BookingActivity extends AppCompatActivity {
                     meal.setText(selectedMeal);
                     date.setText(selectedDate);
                     seats.setText(inputNumberOfSeats);
-
-                    // Parse String to Integer
-                    tableSize = Integer.parseInt(inputNumberOfSeats);
 
                     // On User Confirmation
                     confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -247,12 +248,12 @@ public class BookingActivity extends AppCompatActivity {
                         }
                     }
 
-                    if (searchSuccessful && matchingCustomerId != 0) {
-                        Toast.makeText(BookingActivity.this, "Search Successful!", Toast.LENGTH_SHORT).show();
+                    if (searchSuccessful) {
+                        Toast.makeText(BookingActivity.this, "Booking Successful!", Toast.LENGTH_SHORT).show();
                         Log.d("USER_ID", String.valueOf(matchingCustomerId));
                         patchBooking(matchingCustomerId);
                     } else {
-                        Toast.makeText(BookingActivity.this, "Search Failed, Please try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BookingActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
@@ -263,15 +264,16 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Reservation>> call, Throwable t) {
                 Toast.makeText(BookingActivity.this, "Failed to connect to server.", Toast.LENGTH_SHORT).show();
-                Log.d("TEST", "failed at on failure: " + t.getMessage());
+                Log.d("SEARCH_BY_PHONE_FAILURE", "Error Message: " + t.getMessage());
             }
         });
     }
 
+    // Create booking
     private void patchBooking(int matchingId){
         PatchBookingRequest newBooking = new PatchBookingRequest(selectedMeal, selectedSeatingArea, tableSize, selectedDate);
 
-        requestData.putBooking(matchingId, newBooking).enqueue(new Callback<Reservation>() {
+        requestData.editBooking(matchingId, newBooking).enqueue(new Callback<Reservation>() {
             @Override
             public void onResponse(Call<Reservation> call, Response<Reservation> response) {
                 if(response.isSuccessful()){
@@ -287,6 +289,7 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Reservation> call, Throwable t) {
                 Toast.makeText(BookingActivity.this, "Booking Failed, Please try again.", Toast.LENGTH_SHORT).show();
+                Log.d("PATCH_BOOKING_FAILURE", "Error Message: " + t.getMessage());
             }
         });
 

@@ -3,12 +3,15 @@ package com.example.oceansbounty;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class InboxActivity extends AppCompatActivity {
 
@@ -22,6 +25,18 @@ public class InboxActivity extends AppCompatActivity {
         ImageButton menuButton = findViewById(R.id.menu_button);
         ImageButton profileButton = findViewById(R.id.profile_button);
 
+        allowNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Log.d("SWITCH_TEST", String.valueOf(b));
+                if(b){
+                    MainActivity.notificationAllowed = true;
+                } else {
+                    MainActivity.notificationAllowed = false;
+                    allowNotification.setChecked(false);
+                }
+            }
+        });
 
         // Bottom Navigation Buttons
         menuButton.setOnClickListener(new View.OnClickListener() {
