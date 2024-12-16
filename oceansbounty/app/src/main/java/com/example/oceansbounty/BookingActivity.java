@@ -271,7 +271,7 @@ public class BookingActivity extends AppCompatActivity {
     private void patchBooking(int matchingId){
         PatchBookingRequest newBooking = new PatchBookingRequest(selectedMeal, selectedSeatingArea, tableSize, selectedDate);
 
-        requestData.putBooking(matchingId, newBooking).enqueue(new Callback<Reservation>() {
+        requestData.editBooking(matchingId, newBooking).enqueue(new Callback<Reservation>() {
             @Override
             public void onResponse(Call<Reservation> call, Response<Reservation> response) {
                 if(response.isSuccessful()){
