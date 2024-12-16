@@ -41,7 +41,7 @@
         </activity>
 
         <activity
-            android:name=".TableDetailsActivity"
+            android:name=".BookingActivity"
             android:exported="true">
         </activity>
 
