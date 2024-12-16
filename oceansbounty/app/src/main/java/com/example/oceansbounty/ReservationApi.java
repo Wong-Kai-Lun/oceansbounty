@@ -23,7 +23,7 @@ interface RequestData {
     Call<Reservation> createAccount(@Body PostUserRequest newAccount);
 
     @PATCH("api/Reservations/{id}")
-    Call<Reservation> putBooking(
+    Call<Reservation> editBooking(
             @Path("id") int id,
             @Body PatchBookingRequest newBooking);
 
