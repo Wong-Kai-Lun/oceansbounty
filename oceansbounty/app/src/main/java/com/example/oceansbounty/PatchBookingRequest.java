@@ -1,37 +1,25 @@
 package com.example.oceansbounty;
+import com.google.gson.annotations.SerializedName;
 
-public class RequestPost {
+public class PatchBookingRequest {
 
-    private String customerName;
-    private String customerPhoneNumber;
+    @SerializedName("meal")
     private String meal;
+
+    @SerializedName("seatingArea")
     private String seatingArea;
+
+    @SerializedName("tableSize")
     private int tableSize;
+
+    @SerializedName("date")
     private String date;
 
-    public RequestPost(String customerName, String customerPhoneNumber, String meal, String seatingArea, int tableSize, String date) {
-        this.customerName = customerName;
-        this.customerPhoneNumber = customerPhoneNumber;
+    public PatchBookingRequest(String meal, String seatingArea, int tableSize, String date) {
         this.meal = meal;
         this.seatingArea = seatingArea;
         this.tableSize = tableSize;
         this.date = date;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
-    }
-
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
     }
 
     public String getMeal() {

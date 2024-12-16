@@ -2,27 +2,36 @@ package com.example.oceansbounty;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
+import java.util.List;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BookingActivity extends AppCompatActivity {
 
     private String selectedScenery;
     private String selectedArea;
+    private String selectedSeatingArea;
     private String selectedMeal;
     private String selectedDate;
+    private int tableSize;
+    private RequestData requestData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,8 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.booking_page);
 
         // UI Components
+        requestData = RetrofitClient.getInstance().create(RequestData.class);
+
         Button gardenButton = findViewById(R.id.garden_button);
         Button seasideButton = findViewById(R.id.seaside_button);
         Button insideButton = findViewById(R.id.inside_button);
@@ -48,8 +59,10 @@ public class BookingActivity extends AppCompatActivity {
 
         selectedScenery = null;
         selectedArea = null;
+        selectedSeatingArea = null;
         selectedMeal = null;
         selectedDate = null;
+        tableSize = 0;
 
         // Button call methods
         gardenButton.setOnClickListener(view -> { scenerySelect(gardenButton, seasideButton); });
@@ -117,13 +130,48 @@ public class BookingActivity extends AppCompatActivity {
                     Toast.makeText(BookingActivity.this, "One of the fields are not selected or filled.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    setContentView(R.layout.booking_confirmation_page);
-                    // set text of the card in booking_confirmation_page
+                    View bookingConfirmationPage = getLayoutInflater().inflate(R.layout.booking_confirmation_page, null);
+                    setContentView(bookingConfirmationPage);
+
+                    // booking_confirmation_page's UI Components
+                    TextView seatingArea = bookingConfirmationPage.findViewById(R.id.input_seating_area);
+                    TextView meal = bookingConfirmationPage.findViewById(R.id.input_meal);
+                    TextView date = bookingConfirmationPage.findViewById(R.id.input_date);
+                    TextView seats = bookingConfirmationPage.findViewById(R.id.input_seats);
+                    Button backButton = bookingConfirmationPage.findViewById(R.id.back_button);
+                    Button confirmButton = bookingConfirmationPage.findViewById(R.id.confirm_button);
+
+                    // Set Text of UI in Confirmation Page
+                    selectedSeatingArea = selectedScenery + " " + selectedArea;
+                    seatingArea.setText(selectedSeatingArea);
+                    meal.setText(selectedMeal);
+                    date.setText(selectedDate);
+                    seats.setText(inputNumberOfSeats);
+
+                    // Parse String to Integer
+                    tableSize = Integer.parseInt(inputNumberOfSeats);
+
+                    // On User Confirmation
+                    confirmButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                            String loggedInPhoneNum = sharedPreferences.getString("phone_number", "");
+                            searchByPhone(loggedInPhoneNum);
+                        }
+                    });
+
+                    // When backButton is pressed (in Confirmation Page)
+                    backButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(BookingActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
         });
-
-
     }
 
     private void scenerySelect(Button clickedButton, Button otherButton) {
@@ -179,5 +227,68 @@ public class BookingActivity extends AppCompatActivity {
         otherButton1.setTextColor(Color.BLACK);
         otherButton2.setBackgroundColor(Color.rgb(255,255,255));
         otherButton2.setTextColor(Color.BLACK);
+    }
+
+    private void searchByPhone(String phoneNumber) {
+        requestData.getAllData().enqueue(new Callback<List<Reservation>>() {
+            @Override
+            public void onResponse(Call<List<Reservation>> call, Response<List<Reservation>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+
+                    List<Reservation> reservations = response.body();
+                    boolean searchSuccessful = false;
+                    int matchingCustomerId = 0;
+
+                    for (Reservation reservation : reservations) {
+                        if (Objects.equals(reservation.getCustomerPhoneNumber(), phoneNumber)) {
+                            searchSuccessful = true;
+                            matchingCustomerId = reservation.getId();
+                            break;
+                        }
+                    }
+
+                    if (searchSuccessful && matchingCustomerId != 0) {
+                        Toast.makeText(BookingActivity.this, "Search Successful!", Toast.LENGTH_SHORT).show();
+                        Log.d("USER_ID", String.valueOf(matchingCustomerId));
+                        patchBooking(matchingCustomerId);
+                    } else {
+                        Toast.makeText(BookingActivity.this, "Search Failed, Please try again.", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Toast.makeText(BookingActivity.this, "Error retrieving data from server.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Reservation>> call, Throwable t) {
+                Toast.makeText(BookingActivity.this, "Failed to connect to server.", Toast.LENGTH_SHORT).show();
+                Log.d("TEST", "failed at on failure: " + t.getMessage());
+            }
+        });
+    }
+
+    private void patchBooking(int matchingId){
+        PatchBookingRequest newBooking = new PatchBookingRequest(selectedMeal, selectedSeatingArea, tableSize, selectedDate);
+
+        requestData.putBooking(matchingId, newBooking).enqueue(new Callback<Reservation>() {
+            @Override
+            public void onResponse(Call<Reservation> call, Response<Reservation> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(BookingActivity.this, "Booking Successful!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookingActivity.this, MenuActivity.class);
+                    startActivity(intent);
+                } else {
+                    Log.d("TEST", String.valueOf(response.code()));
+                    Log.d("TEST", matchingId + selectedSeatingArea + tableSize + selectedDate);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Reservation> call, Throwable t) {
+                Toast.makeText(BookingActivity.this, "Booking Failed, Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.oceansbounty;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -70,6 +71,12 @@ public class LoginActivity extends AppCompatActivity {
                     for (Reservation reservation : reservations) {
                         if (Objects.equals(reservation.getCustomerPhoneNumber(), phoneNumber)) {
                             loginSuccessful = true;
+
+                            // Save current user's info in Shared Preferences
+                            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("phone_number", reservation.getCustomerPhoneNumber());
+                            editor.apply();
                             break;
                         }
                     }
@@ -94,5 +101,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }

@@ -7,6 +7,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="25dp"
+        android:text="Confirmation"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/crab_red"
+        android:gravity="center"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,78 +28,58 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="300dp"
             android:layout_height="210dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/light_grey_rect"
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/table_num"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/white_circle"
-                android:backgroundTint="@color/crab_red"
-                android:gravity="center"
-                android:text="N"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/scenery"
+                android:id="@+id/input_seating_area"
+                style="@style/CardInfoChip"
+                android:text="seating_area"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/scenery"
-                style="@style/CardInfoChip"
-                android:text="Scenery"
-                app:layout_constraintEnd_toStartOf="@+id/place"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/table_num"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/place"
-                style="@style/CardInfoChip"
-                android:text="Place"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/scenery"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/meal_type"
+                android:id="@+id/input_meal"
                 style="@style/CardInfoChip"
                 android:text="meal_type"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/table_num"
-                app:layout_constraintTop_toBottomOf="@+id/scenery" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_seating_area" />
 
             <!--Date-->
+
+            <!--Seats-->
             <ImageView
                 android:id="@+id/calendar_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 android:contentDescription="date"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/table_num"
+                app:layout_constraintTop_toBottomOf="@+id/input_meal"
                 app:srcCompat="@drawable/calendar" />
 
             <TextView
                 android:id="@+id/input_date"
                 style="@style/CardInfoText"
                 android:layout_width="84dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:text="dd/mm/yyyy"
+                android:text="yyyy/mm/dd"
                 app:layout_constraintStart_toEndOf="@+id/calendar_icon"
-                app:layout_constraintTop_toBottomOf="@+id/table_num" />
+                app:layout_constraintTop_toBottomOf="@+id/input_meal" />
 
-            <!--Seats-->
             <ImageView
                 android:id="@+id/chair_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 android:contentDescription="time"
                 android:scaleX="1.2"
@@ -149,5 +139,4 @@
             android:text="Confirm" />
 
     </LinearLayout>
-
 </LinearLayout>

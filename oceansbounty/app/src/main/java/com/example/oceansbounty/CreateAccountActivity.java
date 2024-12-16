@@ -64,7 +64,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void createNewAccount(String newName, String newPhoneNum){
 
-        RequestPost newAccount = new RequestPost(newName, newPhoneNum, "None", "None", 1, "2024-01-01");
+        PostUserRequest newAccount = new PostUserRequest(newName, newPhoneNum, "None", "None", 1, "2024-01-01");
 
         requestData.createAccount(newAccount).enqueue(new Callback<Reservation>() {
             @Override
@@ -88,6 +88,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void deleteAccount() {
 
+        // Hardcoded to test
         requestData.deleteAccount(2).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

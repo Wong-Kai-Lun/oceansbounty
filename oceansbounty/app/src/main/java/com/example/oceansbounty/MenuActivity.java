@@ -1,10 +1,12 @@
 package com.example.oceansbounty;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,12 +36,12 @@ public class MenuActivity extends AppCompatActivity {
         inboxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MenuActivity.this, InboxActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MenuActivity.this, InboxActivity.class);
+                startActivity(intent);
             }
         });
 
-        inboxButton.setOnClickListener(new View.OnClickListener() {
+        profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
