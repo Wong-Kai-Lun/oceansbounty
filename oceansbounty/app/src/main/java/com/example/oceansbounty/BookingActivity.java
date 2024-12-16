@@ -4,11 +4,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +35,7 @@ public class BookingActivity extends AppCompatActivity {
         Button insideButton = findViewById(R.id.inside_button);
         Button outsideButton = findViewById(R.id.outside_button);
 
-        EditText numberOfSeats = findViewById(R.id.number_of_seats);
+        EditText numberOfSeatsField = findViewById(R.id.number_of_seats);
 
         Button breakfastButton = findViewById(R.id.breakfast_button);
         Button lunchButton = findViewById(R.id.lunch_button);
@@ -64,30 +66,35 @@ public class BookingActivity extends AppCompatActivity {
         inputDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get today's date
-                Calendar today = Calendar.getInstance();
 
-                // A week in advance
-                today.add(Calendar.DAY_OF_MONTH, 7);
+                if(selectedScenery == null || selectedArea == null) {
+                    Toast.makeText(BookingActivity.this, "Please select seating area first.", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Get today's date
+                    Calendar today = Calendar.getInstance();
 
-                // Create a DatePickerDialog
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        BookingActivity.this,
-                        (view1, year, month, day) -> {
-                            month += 1;
-                            selectedDate = year + "/" + month + "/" + day;
-                            inputDate.setText(selectedDate);
-                        },
-                        today.get(Calendar.YEAR),
-                        today.get(Calendar.MONTH),
-                        today.get(Calendar.DAY_OF_MONTH)
-                );
+                    // A week in advance
+                    today.add(Calendar.DAY_OF_MONTH, 7);
 
-                // Restrict past dates
-                datePickerDialog.getDatePicker().setMinDate(today.getTimeInMillis() + 7);
+                    // Create a DatePickerDialog
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(
+                            BookingActivity.this,
+                            (view1, year, month, day) -> {
+                                month += 1;
+                                selectedDate = year + "/" + month + "/" + day;
+                                inputDate.setText(selectedDate);
+                            },
+                            today.get(Calendar.YEAR),
+                            today.get(Calendar.MONTH),
+                            today.get(Calendar.DAY_OF_MONTH)
+                    );
 
-                // Show the DatePickerDialog
-                datePickerDialog.show();
+                    // Restrict past dates
+                    datePickerDialog.getDatePicker().setMinDate(today.getTimeInMillis());
+
+                    // Show the DatePickerDialog
+                    datePickerDialog.show();
+                }
             }
         });
 
@@ -104,7 +111,15 @@ public class BookingActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String inputNumberOfSeats = numberOfSeatsField.getText().toString();
 
+                if(selectedScenery == null || selectedArea == null || selectedMeal == null || selectedDate == null || TextUtils.isEmpty(inputNumberOfSeats)) {
+                    Toast.makeText(BookingActivity.this, "One of the fields are not selected or filled.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    setContentView(R.layout.booking_confirmation_page);
+                    // set text of the card in booking_confirmation_page
+                }
             }
         });
 
