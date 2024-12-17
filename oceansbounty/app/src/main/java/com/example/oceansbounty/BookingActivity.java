@@ -125,15 +125,15 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String inputNumberOfSeats = numberOfSeatsField.getText().toString();
-                // Parse String to Integer
-                tableSize = Integer.parseInt(inputNumberOfSeats);
 
                 if(selectedScenery == null || selectedArea == null || selectedMeal == null || selectedDate == null || TextUtils.isEmpty(inputNumberOfSeats)) {
                     Toast.makeText(BookingActivity.this, "One of the fields are not selected or filled.", Toast.LENGTH_SHORT).show();
 
-                } else if (tableSize > 10){
-                    Toast.makeText(BookingActivity.this, "Maximum Table Size is 10.", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    // Parse String to Integer
+                    tableSize = Integer.parseInt(inputNumberOfSeats);
+
                     View bookingConfirmationPage = getLayoutInflater().inflate(R.layout.booking_confirmation_page, null);
                     setContentView(bookingConfirmationPage);
 
@@ -156,9 +156,17 @@ public class BookingActivity extends AppCompatActivity {
                     confirmButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                            String loggedInPhoneNum = sharedPreferences.getString("phone_number", "");
-                            searchByPhone(loggedInPhoneNum);
+                            if(tableSize > 10) {
+                                Toast.makeText(BookingActivity.this, "Maximum Table Size is 10.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                                String loggedInPhoneNum = sharedPreferences.getString("phone_number", "");
+
+                                //Search for customer's account and patch the data.
+                                searchByPhone(loggedInPhoneNum);
+                                Intent intent = new Intent(BookingActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            }
                         }
                     });
 
@@ -166,7 +174,7 @@ public class BookingActivity extends AppCompatActivity {
                     backButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(BookingActivity.this, MenuActivity.class);
+                            Intent intent = new Intent(BookingActivity.this, BookingActivity.class);
                             startActivity(intent);
                         }
                     });
@@ -281,8 +289,8 @@ public class BookingActivity extends AppCompatActivity {
                     Intent intent = new Intent(BookingActivity.this, MenuActivity.class);
                     startActivity(intent);
                 } else {
-                    Log.d("TEST", String.valueOf(response.code()));
-                    Log.d("TEST", matchingId + selectedSeatingArea + tableSize + selectedDate);
+                    Log.d("HTTP_RESPONSE_CODE", String.valueOf(response.code()));
+                    Log.d("PATCH_DATA", matchingId + selectedSeatingArea + tableSize + selectedDate);
                 }
             }
 

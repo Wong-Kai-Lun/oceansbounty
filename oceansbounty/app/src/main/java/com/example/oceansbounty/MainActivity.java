@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createNotificationChannel();
-        sendNotification(this);
 
         // set logged_in to false during logout
         boolean logged_in = false;

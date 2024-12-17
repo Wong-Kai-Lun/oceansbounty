@@ -1,17 +1,16 @@
 package com.example.oceansbounty;
 
+import static com.example.oceansbounty.MainActivity.sendNotification;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class InboxActivity extends AppCompatActivity {
 
@@ -19,11 +18,16 @@ public class InboxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inbox_page);
+        sendNotification(this);
 
         // UI Components
         SwitchCompat allowNotification = findViewById(R.id.allow_notification);
         ImageButton menuButton = findViewById(R.id.menu_button);
         ImageButton profileButton = findViewById(R.id.profile_button);
+
+        if(MainActivity.notificationAllowed){
+            allowNotification.setChecked(true);
+        }
 
         allowNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -31,6 +35,7 @@ public class InboxActivity extends AppCompatActivity {
                 Log.d("SWITCH_TEST", String.valueOf(b));
                 if(b){
                     MainActivity.notificationAllowed = true;
+                    allowNotification.setChecked(true);
                 } else {
                     MainActivity.notificationAllowed = false;
                     allowNotification.setChecked(false);
